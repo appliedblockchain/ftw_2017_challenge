@@ -42,3 +42,31 @@ stay tuned for a screen-by-screen guide + hosted version of the `index.html`
 #### Extra
 
 You can also check at the newest ERC23.3 (ERC233) token here: https://github.com/Dexaran/ERC23-tokens/tree/Recommended
+
+
+<!-- [adv.] TIP: in index.html, open the console and use localStorage.ftw_token_address = "0x1234" to reset your token to an arbitrary value if you need to reload a key -->
+
+
+<!-- NOTE: customise your token - note - in index.html there is a FintechWeekToken (symbol: FTW) already compiled and ready to use -->
+
+<!-- example on how to customise a standard token contract (https://gist.github.com/makevoid/ec7f9d94fdeb78d06cea48a17a117213 - ERC20) :
+
+// (from step-by-step slides)
+
+// ...
+
+contract FixedSupplyToken is ERC20Interface {
+   string public constant symbol = "YTO";
+   string public constant name = "Your Token";
+   uint8 public constant decimals = 18;
+   uint256 _totalSupply = 1000000;
+
+   // Owner of this contract
+   address public owner;
+
+   // Balances for each account
+   mapping(address => uint256) balances;
+
+   // .....
+
+ -->
