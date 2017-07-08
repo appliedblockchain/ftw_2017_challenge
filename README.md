@@ -1,4 +1,4 @@
-### FintechWeek 2017 London Hackathon - Ethereum Token Challenge 
+### FintechWeek 2017 London Hackathon - Ethereum Token Challenge
 
 This is just an example, you don't need to use the code included in this repository to build your application, but we believe that this could help you start quickly.
 
@@ -16,7 +16,7 @@ Also check the `index.html` file included in this repository.
 2. Create a Github [Gist](https://gist.github.com) with your Metamask ethereum address [Switching from mainnet] - ( https://gist.github.com/YOUR_USER/COMMIT )
 
 
-3. Visit the Testnet Faucet and claim your test Ethers: [rinkeby.etherscan.io](https://rinkeby.etherscan.io)
+3. Visit the Testnet Faucet and claim your test Ethers: [faucet.rinkeby.io](https://faucet.rinkeby.io/)
 
 
 4. Check the transaction for confirmation ( https://rinkeby.etherscan.io/address/YOUR_ADDRESS )
@@ -26,7 +26,7 @@ Also check the `index.html` file included in this repository.
 5. Deploy the (ERC20) token contract (open index.html with metamask unlocked [w/ Rinkeby Network Selected] and and hit the deploy button)
 
 
-6. Test it (send tokens) 
+6. Test it (send tokens)
 
 
 7. Build something with it!
