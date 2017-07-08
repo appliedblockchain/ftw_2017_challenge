@@ -60,10 +60,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.5.0/bluebird.min.js" charset="utf-8"></script>
     <!-- if your browser doesn't supports async/await you may want to use https://github.com/yortus/asyncawait -  -->
     <script type="text/javascript">
+
+      // PLEASE NOTE that the minimum Chrome version to run this code is 55 (async/await)
+
       // Token contract code used for this example: https://gist.github.com/makevoid/ec7f9d94fdeb78d06cea48a17a117213
-      
+
       // Any ERC20 Ethereum Standard Token will be compatible with this script.
-      
+
       var d = document
       var c = console
       var g = window // global scope shortcut
@@ -100,23 +103,25 @@
         }
 
         // all actions
+        bindSendTokensBtn()
+        bindDeployContract()
         loadAddress()
         updateBalance()
-        bindDeployContract()
         updateTokenBalance()
-        bindSendTokensBtn()
       }
 
+      // calls eth.getBalance (gets balance in weis - "micro" ethers)
       var updateBalance = async function() {
         var balance = await g.getBalance(g.coinbase)
         d.querySelector(".balance").innerHTML = balance
       }
 
+      // calls token.balanceOf (token balance of a specific address)
       var updateTokenBalance = async function() {
         var balanceOf = Promise.promisify(g.tokenContract.balanceOf)
         var symbol    = Promise.promisify(g.tokenContract.symbol)
 
-        var balance = await balanceOf(g.coinbase)
+        var balance = await balanceOf(g.coinbase) // in this case the address is your current metamask address (coinbase)
         var sym     = await symbol()
 
         var tokenBalance = d.querySelector(".token_balance")
@@ -126,6 +131,7 @@
       }
 
       var loadAddress = function () {
+        // loads address from local storage if you have already deployed a token contract address with this browser "user/account"
         var address = localStorage.ftw_token_address
         if (address) {
           g.contractAddress = address
@@ -135,6 +141,7 @@
         }
       }
 
+      // triggers the creation of a token contract
       var deployContract = async function() {
         g.TokenContract.new([], {
           data: g.bytecode,
@@ -143,6 +150,8 @@
         }, contractDeploymentCallback)
       }
 
+      // this function will be called twice so it wasn't possible to promisify-it
+      // the second time you get this callback your token contract will be likely to be deployed already and you will get the address of it
       var contractDeploymentCallback = function(err, resp) {
         if (err) c.error(err)
         var address = resp.address
@@ -151,11 +160,14 @@
 
         if (address) {
           addressElem.innerHTML = address
+          // we save the address in the local storage so we can point to the same contract after a browser refresh
           localStorage.ftw_token_address = address
           g.contractAddress = address
         }
       }
 
+      // this is the first time we actually do a sendTransaction call (a standard ethereum transaction)
+      // here we call the token contract method `transfer`
       var sendTokens = async function() {
         var recipientElem = d.querySelector(".recipient_address")
         var recipient = recipientElem.value
@@ -193,7 +205,8 @@
       g.abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_amount","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"totalSupply","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_amount","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_amount","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_owner","type":"address"},{"indexed":true,"name":"_spender","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Approval","type":"event"}]
 
       // contract was compiled via:  https://ethereum.github.io/browser-solidity/
-      
+
+      // feel free to ask questions to @makevoid during Saturday about the JS code above and feel free to change it completely to however you'll like :)
     </script>
   </body>
 </html>
