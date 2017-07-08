@@ -24,4 +24,4 @@
 enjoy!
 
 
-<!-- mkv's notes: localStorage.ftw_token_address = "0xbedfbe489de87a634be3efdb21b34b83b98772ad" -->
+<!-- [adv.] TIP: in index.html, open the console and use localStorage.ftw_token_address = "0x1234" to reset your token to an arbitrary value if you need to reload a key -->
