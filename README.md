@@ -41,7 +41,7 @@ stay tuned for a screen-by-screen guide + hosted version of the `index.html`
 
 #### Extra
 
-You can also check at the newest ERC23.3 (ERC233) token here: https://github.com/Dexaran/ERC23-tokens/tree/Recommended
+You can also check the newest ERC23.3 (ERC233) token here: https://github.com/Dexaran/ERC23-tokens/tree/Recommended
 
 
 <!-- [adv.] TIP: in index.html, open the console and use localStorage.ftw_token_address = "0x1234" to reset your token to an arbitrary value if you need to reload a key -->
