@@ -26,10 +26,38 @@ Also check the `index.html` file included in this repository.
 5. Deploy the (ERC20) token contract (open index.html with metamask unlocked [w/ Rinkeby Network Selected] and and hit the deploy button)
 
 
-6. Test it (send tokens)
+6. Test it (send tokens) 
+
+notes: the two "blockchain" functions to use tokens are `new()`: the token creation function, `transfer()`:  the function that allows token holders to transfer funds between themselves (`transfer(to, amount)`)
 
 
-7. Build something with it!
+####  new()
+
+(js example: `TokenContract = TokenContract.at(localStorage.ftw_token_address); TokenContract.new({ /* ... */ })`) 
+
+new() contains a line of code in solidity `balance[owner] = _initialSupply;` which assigns the user in its balance the full amount of the tokens ever created - after that the owner - owner being your metamask address that executed the Contract Deploy function (pressed the button and paid for gas for transaction)
+
+
+
+####  transfer()
+
+ (`transfer(to, amount)`)
+
+(js example: `address = "0x1234"; tokenContract.transfer(address, 100)`) 
+
+transfer() modifies the contract balance of the users simply substracting the balance from the previous owner and adding it to the next one
+
+(solidity: 
+```js
+balances[msg.sender] -= _amount;
+balances[_to] += _amount;
+
+```
+) 
+
+
+
+7. Build something with the informations contained in this repository and in the pdf guide! [Step-by-Step guide](https://github.com/appliedblockchain/ftw_2017_challenge/blob/master/FTW-ERC20-hackathon-screen-by-screen.pdf) 
 
 
 ---
