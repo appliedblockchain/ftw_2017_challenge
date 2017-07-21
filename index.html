@@ -142,7 +142,7 @@
       }
 
       // triggers the creation of a token contract
-      var deployContract = async function() {
+      var deployContract = function() {
         g.TokenContract.new([], {
           data: g.bytecode,
           from: g.coinbase,
