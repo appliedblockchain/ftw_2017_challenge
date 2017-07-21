@@ -1,6 +1,6 @@
 ### FintechWeek 2017 London Hackathon - Ethereum Token Challenge
 
-This is just an example, you don't need to use the code included in this repository to build your application, but we believe that this could help you start quickly.
+This is just an example, you don't need to use the code included in this repository to build your application, but we believe that this could help you start trying/developing Ethereum apps quickly.
 
 ##### Please see the [Challenge PDF included in this repository](https://github.com/appliedblockchain/ftw_2017_challenge/blob/master/challenge-presentation.pdf) and more importantly the [Step-by-Step guide](https://github.com/appliedblockchain/ftw_2017_challenge/blob/master/FTW-ERC20-hackathon-screen-by-screen.pdf) useful if you're not familiar with Ethereum.
 
