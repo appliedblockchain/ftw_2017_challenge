@@ -34,11 +34,6 @@ Also check the `index.html` file included in this repository.
 
 ---
 
-#### Guide
-
-stay tuned for a screen-by-screen guide + hosted version of the `index.html`
-
-
 #### Extra
 
 You can also check the newest ERC23.3 (ERC233) token here: https://github.com/Dexaran/ERC23-tokens/tree/Recommended
