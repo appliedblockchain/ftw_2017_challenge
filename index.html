@@ -174,7 +174,7 @@
 
         var transfer = Promise.promisify(g.tokenContract.transfer)
 
-        var tokenTransferAmount = 100 // FIXME" hardcoded amount, in a real app you probably want to specify the amount transfered
+        var tokenTransferAmount = 100 // FIXME™  hardcoded amount, in a real app you probably want to specify the amount transfered
 
         var result = await transfer(recipient, tokenTransferAmount)
         c.log(result)
