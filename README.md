@@ -93,3 +93,10 @@ contract FixedSupplyToken is ERC20Interface {
    // .....
 
  -->
+
+
+#### related:
+
+Blockchain Week 17 Hackaton
+
+https://appliedblockchain.github.io/bw-hackathon/
